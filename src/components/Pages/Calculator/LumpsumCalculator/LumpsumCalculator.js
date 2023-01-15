@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import lumpSumpImg from '../../../../images/Calculator/LumpsumCalculator.png';
 import aboutImg from '../../../../images/Calculator/bg.jpg';
+import { LumpsumCalculation } from '../../../../utilities/calculator';
+import ShowResult from '../../../ShowResult/ShowResult';
 
 const LumpsumCalculator = () => {
+    const [data, setData] = useState({
+        investment: "",
+        rateOfReturn: "",
+        year: ""
+    });
+    const [modalShow, setModalShow] = useState(false);
+    const [result, setResult] = useState({});
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setData(preData => ({
+            ...preData,
+            [name]: value
+        }))
+    };
+    const resultProperty = {
+        title: "Your future value",
+        first: "Your Corpus Value",
+        second: "Total Earnings",
+        third: "Total Deposited Amount"
+    }
     return (
         <div className=' bg-slate-200 py-5'>
             <div className='mx-14'>
@@ -12,29 +34,37 @@ const LumpsumCalculator = () => {
                         <p>Consider a Lumpsum investment? Estimate your future wealth by using our Lumpsum Calculator.</p>
                         <div className='bg-lime-200 px-12 py-2 rounded mt-2'>
                             <form action="">
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                         Investment amount<span className='text-red-600'>*</span>
                                     </label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 10000" />
+                                    <input name='investment' value={data.investment} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 10000" />
                                 </div>
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                         Expected rate of return (P.A)<span className='text-red-600'>*</span>
                                     </label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 13%" />
+                                    <input name='rateOfReturn' value={data.rateOfReturn} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 13%" />
                                 </div>
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                         Tenure (in years) (Max 50 Year)<span className='text-red-600'>*</span>
                                     </label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 11" />
+                                    <input name='year' value={data.year} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 11" />
                                 </div>
                                 <div className='text-center'>
-                                    <input type="button" className='bg-lime-600 text-white px-6 py-2 rounded-lg text-xl mx-auto' value="Calculate" />
+                                    <input type="button" onClick={
+                                        () => {
+                                            setResult(LumpsumCalculation(data.investment, data.rateOfReturn, data.year));
+                                            setModalShow(true);
+                                        }
+                                    } className='bg-lime-600 text-white px-6 py-2 rounded-lg text-xl mx-auto' value="Calculate" />
                                 </div>
                             </form>
                         </div>
+                        <ShowResult resultProperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)}>
+
+                        </ShowResult>
                     </div>
                     <div className='w-80 mx-auto'>
                         <img className='w-full mt-6' src={lumpSumpImg} alt="" />

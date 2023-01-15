@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeImg from "../../../images/Home/home-img.png";
+import HomeImg from "../../../images/Home/newHome.jpg";
 
 
 const Home = () => {
@@ -8,10 +8,10 @@ const Home = () => {
             <div className='text-center '>
                 <h1 className='text-5xl my-3'>Meet Your Financial Magician</h1>
                 <div className='relative  mx-auto' style={{ width: '800px' }}>
-                    <button style={{ top: '25%', left: '-13%' }} className='absolute  text-lime-600 font-bold w-64 tracking-widest py-3 border-2 border-x-lime-300 border-b-lime-600 rounded-md hover:bg-lime-600 hover:text-white '>Stocks</button>
+                    {/* <button style={{ top: '25%', left: '-13%' }} className='absolute  text-lime-600 font-bold w-64 tracking-widest py-3 border-2 border-x-lime-300 border-b-lime-600 rounded-md hover:bg-lime-600 hover:text-white '>Stocks</button>
                     <button style={{ top: '65%', left: '-12%' }} className='absolute text-lime-600 font-bold w-64 tracking-widest py-3 border-2 border-x-lime-300 border-b-lime-600 rounded-md hover:bg-lime-600 hover:text-white '>Financial Advisory</button>
                     <button style={{ top: '25%', right: '-25%' }} className='absolute text-lime-600 font-bold w-64 tracking-widest py-3 border-2 border-x-lime-300 border-b-lime-600 rounded-md hover:bg-lime-600 hover:text-white '>Analysis Tool</button>
-                    <button style={{ top: '71%', right: '-24%' }} className='absolute text-lime-600 font-bold w-64 tracking-widest py-3 border-2 border-x-lime-300 border-b-lime-600 rounded-md hover:bg-lime-600 hover:text-white '>News & Update</button>
+                    <button style={{ top: '71%', right: '-24%' }} className='absolute text-lime-600 font-bold w-64 tracking-widest py-3 border-2 border-x-lime-300 border-b-lime-600 rounded-md hover:bg-lime-600 hover:text-white '>News & Update</button> */}
                     <img className='h-full w-full ' src={HomeImg} alt="" />
                 </div>
             </div>
