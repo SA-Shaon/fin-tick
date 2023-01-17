@@ -10,7 +10,7 @@ const Header = () => {
                 <Navbar.Brand as={Link} to="/"><img src={homeIcon} className='w-32' alt="" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
-                    <Form className="d-flex mx-auto w-50" >
+                    <Form className="d-flex mx-auto w-1/3" >
                         <Form.Control
                             type="search"
                             placeholder="Search your Company "
@@ -24,11 +24,11 @@ const Header = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/calculator">Calculator</Nav.Link>
-                        <Nav.Link as={Link} to="/">About</Nav.Link>
-                        <Nav.Link as={Link} to="/">Help</Nav.Link>
-                        <Nav.Link as={Link} to="/">Sign In</Nav.Link>
+                        <Nav.Link as={Link}  to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} className='ms-2' to="/calculator">Calculator</Nav.Link>
+                        <Nav.Link as={Link} className='ms-2' to="/">About</Nav.Link>
+                        <Nav.Link as={Link} className='ms-2' to="/">Help</Nav.Link>
+                        <Nav.Link as={Link} className='ms-2' to="/">Sign In</Nav.Link>
                         {/* <NavDropdown title="Link" id="navbarScrollingDropdown" >
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">

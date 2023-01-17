@@ -63,9 +63,7 @@ const LumpsumCalculator = () => {
                                 </div>
                             </form>
                         </div>
-                        <ShowResult resultProperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)}>
-
-                        </ShowResult>
+                        <ShowResult resultProperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)} />
                     </div>
                     <div className='w-80 mx-auto'>
                         <img className='w-full mt-6' src={lumpSumpImg} alt="" />

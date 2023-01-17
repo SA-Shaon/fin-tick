@@ -7,7 +7,6 @@ import img4 from '../../../images/Calculator/4.png';
 import img5 from '../../../images/Calculator/5.png';
 
 const Calculator = () => {
-
     return (
         <div className='mb-12 '>
             <h1 className=' text-5xl font-semibold text-center my-12 tracking-wide'>Financial Calculators</h1>
@@ -20,8 +19,8 @@ const Calculator = () => {
                     <p className=' mt-7 '><small>Consider a Lumpsum investment? Estimate
                         your future wealth by using our Lumpsum Calculator.</small>
                     </p>
-                    <Link to='/calculator/lumpsumCalculator'>
-                        <button className='px-12 py-2 bg-lime-600 text-white rounded-xl mt-5 group-hover:bg-white group-hover:text-lime-600'>Launch Calculator</button>
+                    <Link to='/calculator/lumpsumCalculator' >
+                        <button className='px-12 py-2 bg-lime-600 group-hover:bg-white text-white rounded-xl mt-5'><span className='group-hover:text-lime-600'>Launch Calculator</span></button>
                     </Link>
                 </div>
                 <div className='border-2 border-lime-500 w-80 shadow-xl shadow-gray-400 py-12 text-center rounded-xl hover:bg-lime-600 hover:text-white group px-3 place-self-center '>
@@ -33,7 +32,7 @@ const Calculator = () => {
                         wealth you can generate over the years.</small>
                     </p>
                     <Link to='/calculator/sipCalculator'>
-                        <button className='px-12 py-2 bg-lime-600 text-white rounded-xl mt-5 group-hover:bg-white group-hover:text-lime-600'>Launch Calculator</button>
+                        <button className='px-12 py-2 bg-lime-600 text-white rounded-xl mt-5 group-hover:bg-white'><span className='group-hover:text-lime-600'>Launch Calculator</span></button>
                     </Link>
                 </div>
                 <div className='border-2 border-lime-500 w-80 shadow-xl shadow-gray-400 py-10 text-center rounded-xl hover:bg-lime-600 hover:text-white group px-3 place-self-start '>
@@ -47,7 +46,7 @@ const Calculator = () => {
                     </small>
                     </p>
                     <Link to={'/calculator/goalPlanningCalculator'}>
-                        <button className='px-12 py-2 bg-lime-600 text-white rounded-xl mt-5 group-hover:bg-white group-hover:text-lime-600'>Launch Calculator</button>
+                        <button className='px-12 py-2 bg-lime-600 text-white rounded-xl mt-5 group-hover:bg-white'><span className='group-hover:text-lime-600'>Launch Calculator</span></button>
                     </Link>
                 </div>
             </div>
