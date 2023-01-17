@@ -19,6 +19,12 @@ const LumpsumCalculator = () => {
             [name]: value
         }))
     };
+    const handleSubbmit = async e => {
+        e.target.reset();
+        e.preventDefault();
+        setResult(LumpsumCalculation(data.investment, data.rateOfReturn, data.year));
+        await setModalShow(true);
+    }
     const resultProperty = {
         title: "Your future value",
         first: "Your Corpus Value",
@@ -33,32 +39,27 @@ const LumpsumCalculator = () => {
                     <div>
                         <p>Consider a Lumpsum investment? Estimate your future wealth by using our Lumpsum Calculator.</p>
                         <div className='bg-lime-200 px-12 py-2 rounded mt-2'>
-                            <form action="">
+                            <form onSubmit={handleSubbmit}>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                         Investment amount<span className='text-red-600'>*</span>
                                     </label>
-                                    <input name='investment' value={data.investment} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 10000" />
+                                    <input name='investment' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 10000" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                         Expected rate of return (P.A)<span className='text-red-600'>*</span>
                                     </label>
-                                    <input name='rateOfReturn' value={data.rateOfReturn} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 13%" />
+                                    <input name='rateOfReturn' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 13%" />
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                         Tenure (in years) (Max 50 Year)<span className='text-red-600'>*</span>
                                     </label>
-                                    <input name='year' value={data.year} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 11" />
+                                    <input name='year' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 11" />
                                 </div>
                                 <div className='text-center'>
-                                    <input type="button" onClick={
-                                        () => {
-                                            setResult(LumpsumCalculation(data.investment, data.rateOfReturn, data.year));
-                                            setModalShow(true);
-                                        }
-                                    } className='bg-lime-600 text-white px-6 py-2 rounded-lg text-xl mx-auto' value="Calculate" />
+                                    <input type="submit" className='bg-lime-600 text-white px-6 py-2 rounded-lg text-xl mx-auto' value="Calculate" />
                                 </div>
                             </form>
                         </div>

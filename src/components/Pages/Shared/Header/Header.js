@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <Navbar expand="lg" className='bg-lime-100'>
             <Container fluid>
-                <Navbar.Brand href="#"><img src={homeIcon} className='w-32' alt="" /></Navbar.Brand>
+                <Navbar.Brand as={Link} to="/"><img src={homeIcon} className='w-32' alt="" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Form className="d-flex mx-auto w-50" >
