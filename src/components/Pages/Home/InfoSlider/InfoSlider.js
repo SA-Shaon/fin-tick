@@ -20,8 +20,8 @@ const InfoSlider = () => {
     }
     useEffect(() => {
         slidRef.current.addEventListener('animationend', removeAnimation);
-        slidRef.current.addEventListener('mouseenter', pauseSlider);
-        slidRef.current.addEventListener('mouseleave', startSlider);
+        // slidRef.current.addEventListener('mouseenter', pauseSlider);
+        // slidRef.current.addEventListener('mouseleave', startSlider);
         startSlider();
         return () => {
             pauseSlider();
