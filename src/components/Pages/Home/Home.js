@@ -2,6 +2,7 @@ import React from 'react';
 import HomeImg from "../../../images/Home/newHome.jpg";
 import aboutImg from "../../../images/Home/about.png";
 import Faq from './Faq/Faq';
+import InfoSlider from './InfoSlider/InfoSlider';
 
 
 const Home = () => {
@@ -13,6 +14,9 @@ const Home = () => {
                     <img className='h-full w-full ' src={HomeImg} alt="" />
                 </div>
             </div>
+            <section className='border-2 border-yellow-500'>
+                <InfoSlider></InfoSlider>
+            </section>
             <section className='text-center mt-3 bg-slate-200 pt-4 px-14'>
                 <h1 className='text-5xl font-semibold'>What is fintick?</h1>
             </section>
