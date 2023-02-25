@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import GoalPlanningImg from '../../../../images/Calculator/GoalPlanning.jpg';
-import aboutImg from '../../../../images/Calculator/bg-lg.jpg';
-import { gpLumsumCalculation } from '../../../../utilities/calculator';
-import ShowGPResult from './ShowGPResult';
+import React from 'react';
+import SIPImg from '../../../../images/Calculator/4.png';
+import aboutImg from '../../../../images/Calculator/bg.jpg';
+import { useState } from 'react';
+import { gpSIPCalculation } from '../../../../utilities/calculator';
+import ShowgpSIPResult from './ShowgpSIPResult';
 
-const GoalPlanning = () => {
+const GoalPlanningSIP = () => {
     const [data, setData] = useState({
-        target: "",
+        investment: "",
         rateOfReturn: "",
         year: ""
     });
@@ -22,25 +23,25 @@ const GoalPlanning = () => {
     const handleSubmit = async e => {
         e.target.reset();
         e.preventDefault();
-        setResult(gpLumsumCalculation(data.target, data.rateOfReturn, data.year));
+        setResult(gpSIPCalculation(data.investment, data.rateOfReturn, data.year));
         await setModalShow(true);
     }
     const resultProperty = {
-        first: "Investment Amount Needed",
+        first: "Investment Amount"
     }
     return (
         <div className='mx-14'>
-            <h1 className=' text-3xl font-semibold text-center my-6 tracking-wide'>Goal Planning - Lumpsum</h1>
+            <h1 className=' text-3xl font-semibold text-center my-6 tracking-wide'>Goal Planning - SIP</h1>
             <section className='grid grid-cols-2 gap-4 mb-8'>
                 <div>
-                    <p>Would you like to invest and become rich once? Calculate your investment amount for this with our one-time investment calculator.</p>
+                    <p>How much do you need to invest each year or month to build your wealth? Calculate your investment with our regular investment calculator.</p>
                     <div className='bg-lime-200 px-12 py-2 rounded mt-2'>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                     Targeted Wealth<span className='text-red-600'>*</span>
                                 </label>
-                                <input name='target' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 10000" />
+                                <input name='investment' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 10000" />
                             </div>
                             <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
@@ -59,20 +60,20 @@ const GoalPlanning = () => {
                             </div>
                         </form>
                     </div>
-                    <ShowGPResult resultproperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)} />
+                    <ShowgpSIPResult resultproperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)} />
                 </div>
-                <div className='w-80 mx-auto pt-2'>
-                    <img className='w-full' src={GoalPlanningImg} alt="" />
+                <div className='w-80 mx-auto'>
+                    <img className='w-full h-full' src={SIPImg} alt="" />
                 </div>
             </section>
             <section>
                 <div className='mx-auto relative w-96' >
                     <img src={aboutImg} alt="" />
-                    <h3 className='font-semibold absolute top-4 left-10 text-xl'>About Fintick Goal Planning - Lumpsum</h3>
+                    <h3 className='font-semibold absolute top-3 left-16 text-xl'>   About Fintick Goal Planning - SIP</h3>
                 </div>
                 <div className='mb-3'>
                     <h3 className='text-lg font-medium' >1. Why is Goal Planning important?</h3>
-                    <p>If you want to achieve something, first you have to know where you are and where you are going. Likewise, you should analyze your current financial situation, develop financial plans, and plan your future goals. Goals define future needs. A goal plan helps you be financially secure and direct your current investments to generate returns over time to achieve your desired goals.</p>
+                    <p> you want to achieve something, first you have to know where you are and where you are going. Likewise, you should analyze your current financial situation, develop financial plans, and plan your future goals. Goals define future needs. A goal plan helps you be financially secure and direct your current investments to generate returns over time to achieve your desired goals                 </p>
                 </div>
                 <div className='mb-3'>
                     <h3 className='text-lg font-medium' >2. How do I determine my financial goals?</h3>
@@ -80,7 +81,7 @@ const GoalPlanning = () => {
                     </p>
                 </div>
                 <div className='mb-3'>
-                    <h3 className='text-lg font-medium' >3. What is financial planning process?</h3>
+                    <h3 className='text-lg font-medium' >3.  What is financial planning process?</h3>
                     <p>Proper planning of your finances is called financial planning. First, determine your current financial status, current location, money you have, etc. Then set long-term and short-term financial goals. A SIP calculator is also available. Once your goals are set, identify and evaluate the financial instruments you want to invest in that are appropriate for your risk profile. Start investing and put your plans into action today. You should periodically check the results of your plan and make changes if necessary. Find out how much to invest in a SIP with this mutual fund calculator.</p>
                 </div>
             </section>
@@ -88,4 +89,4 @@ const GoalPlanning = () => {
     );
 };
 
-export default GoalPlanning;
+export default GoalPlanningSIP;

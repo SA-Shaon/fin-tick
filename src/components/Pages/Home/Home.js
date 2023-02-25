@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeImg from "../../../images/Home/newHome.jpg";
 import aboutImg from "../../../images/Home/about.png";
+import Faq from './Faq/Faq';
 
 
 const Home = () => {
@@ -16,8 +17,8 @@ const Home = () => {
                 <h1 className='text-5xl font-semibold'>What is fintick?</h1>
             </section>
             <section className='bg-slate-200 pt-8 px-14'>
-                <div className='grid grid-cols-4 gap-4 container'>
-                    <div className='col-span-2'>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-4 container'>
+                    <div className='col-span-2 order-2'>
                         <h3 className='text-2xl font-medium mb-4'>A one-stop destination for all your financial matters.</h3>
                         <p className='mb-2'>We understand that managing your finances can be a daunting task, which is why we've created an integrated platform that makes it easy for you to access all the information you need in one place. With FinTick, you'll never have to settle for a 'half-plate' of financial information again.</p>
                         <p className='mb-2'>Our platform is designed to provide you with the latest economy news and update, as well as in-depth industry analysis and stock data. We also offer detailed information on individual companies, so you can stay up-to-date on the latest developments in the businesses you're interested in.  Whether you are a professional investor or a beginner, FinTick has the perfect recipe for you. </p>
@@ -30,7 +31,7 @@ const Home = () => {
                             <li>Company  updates</li>
                         </ol>
                     </div>
-                    <div className='col-span-2 self-center'><img src={aboutImg} alt="" /></div>
+                    <div className='col-span-2 self-center object-cover sm:order-1'><img src={aboutImg} alt="" /></div>
                 </div>
                 <div className='grid grid-cols-4 gap-4 mt-4'>
                     <div className='col-span-3 self-center'>
@@ -46,6 +47,10 @@ const Home = () => {
                         <p>Gain insights into a certain industry inclusive of compiled information about its most recent developments.</p>
                     </div>
                 </div>
+            </section>
+            {/* FAQ SECTION */}
+            <section>
+                <Faq></Faq>
             </section>
         </section >
 

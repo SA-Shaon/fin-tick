@@ -1,14 +1,13 @@
 import React from 'react';
-import SIPImg from '../../../../images/Calculator/SIPImg.jpg';
+import SIPImg from '../../../../images/Calculator/5.png';
 import aboutImg from '../../../../images/Calculator/bg.jpg';
 import { useState } from 'react';
-import { SIPCalculation } from '../../../../utilities/calculator';
-import ShowSIPResult from './ShowSIPResult';
+import { stockMvsFDreturns } from '../../../../utilities/calculator';
+import ShowSmVsFdResult from './ShowSmVsFdResult';
 
-const SIPCalculator = () => {
+const SmVsFd = () => {
     const [data, setData] = useState({
         investment: "",
-        rateOfReturn: "",
         year: ""
     });
     const [modalShow, setModalShow] = useState(false);
@@ -23,33 +22,26 @@ const SIPCalculator = () => {
     const handleSubmit = async e => {
         e.target.reset();
         e.preventDefault();
-        setResult(SIPCalculation(data.investment, data.rateOfReturn, data.year));
+        setResult(stockMvsFDreturns(data.investment, data.year));
         await setModalShow(true);
     }
     const resultProperty = {
-        first: "Your Future Value",
-        second: "Total Earnings",
-        third: "Total Deposited Amount"
+        first: "Bank FD",
+        second: "Stock Market"
     }
     return (
         <div className='mx-14'>
-            <h1 className=' text-3xl font-semibold text-center my-6 tracking-wide'>SIP Calculator</h1>
+            <h1 className=' text-3xl font-semibold text-center my-6 tracking-wide'>Stock Market vs FD Returns</h1>
             <section className='grid grid-cols-2 gap-4 mb-8'>
                 <div>
-                    <p>With our SIP Calculator,you can estimate how much wealth you can generate over the years.</p>
+                    <p>Which is better fixed deposit or stock investment? In either case, calculate your returns with our Return Calculator.</p>
                     <div className='bg-lime-200 px-12 py-2 rounded mt-2'>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
-                                    Monthly investment amount<span className='text-red-600'>*</span>
+                                    Investment amount<span className='text-red-600'>*</span>
                                 </label>
                                 <input name='investment' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 10000" />
-                            </div>
-                            <div className="mb-4">
-                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
-                                    Expected rate of return (P.A)<span className='text-red-600'>*</span>
-                                </label>
-                                <input name='rateOfReturn' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="InvestmentAmount" type="number" placeholder="Ex: 13%" />
                             </div>
                             <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
@@ -62,7 +54,7 @@ const SIPCalculator = () => {
                             </div>
                         </form>
                     </div>
-                    <ShowSIPResult resultproperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)} />
+                    <ShowSmVsFdResult resultproperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)} />
                 </div>
                 <div className='w-80 mx-auto'>
                     <img className='w-full h-full' src={SIPImg} alt="" />
@@ -93,4 +85,4 @@ const SIPCalculator = () => {
     );
 };
 
-export default SIPCalculator;
+export default SmVsFd;

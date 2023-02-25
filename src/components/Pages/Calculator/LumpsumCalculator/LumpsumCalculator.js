@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import lumpSumpImg from '../../../../images/Calculator/LumpsumCalculator.png';
 import aboutImg from '../../../../images/Calculator/bg.jpg';
 import { LumpsumCalculation } from '../../../../utilities/calculator';
-import ShowResult from '../../../ShowResult/ShowResult';
+import ShowLSResult from './ShowLSResult';
 
 const LumpsumCalculator = () => {
     const [data, setData] = useState({
@@ -19,7 +19,7 @@ const LumpsumCalculator = () => {
             [name]: value
         }))
     };
-    const handleSubbmit = async e => {
+    const handleSubmit = async e => {
         e.target.reset();
         e.preventDefault();
         setResult(LumpsumCalculation(data.investment, data.rateOfReturn, data.year));
@@ -39,7 +39,7 @@ const LumpsumCalculator = () => {
                     <div>
                         <p>Consider a Lumpsum investment? Estimate your future wealth by using our Lumpsum Calculator.</p>
                         <div className='bg-lime-200 px-12 py-2 rounded mt-2'>
-                            <form onSubmit={handleSubbmit}>
+                            <form onSubmit={handleSubmit}>
                                 <div className="mb-4">
                                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="InvestmentAmount">
                                         Investment amount<span className='text-red-600'>*</span>
@@ -63,7 +63,7 @@ const LumpsumCalculator = () => {
                                 </div>
                             </form>
                         </div>
-                        <ShowResult resultProperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)} />
+                        <ShowLSResult resultProperty={resultProperty} result={result} show={modalShow} onHide={() => setModalShow(false)} />
                     </div>
                     <div className='w-80 mx-auto'>
                         <img className='w-full mt-6' src={lumpSumpImg} alt="" />

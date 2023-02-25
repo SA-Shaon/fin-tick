@@ -5,8 +5,8 @@ import './Footer.css';
 const Footer = () => {
     return (
         <div className=' bg-black opacity-90 text-slate-300 pl-12 pb-5 pt-2'>
-            <div className='grid grid-cols-6 gap-2 mb-12'>
-                <div className="col-span-2">
+            <div className='grid grid-cols-2 md:grid-cols-6 gap-2 mb-12'>
+                <div className="md:col-span-2">
                     <h4 className='opacity-50 text-4xl font-semibold mb-3 hover:text-green' >About FinTick </h4>
                     <p className='text-base '>FinTick is an integrated platform that brings together scientific
                         financial planning and equity analysis for businesses.
@@ -19,7 +19,7 @@ const Footer = () => {
                     <p className='m-1  hover:text-green-800'>Calculator</p>
                     <p className='m-1  hover:text-green-800'>Blog</p>
                 </div>
-                <div className='pl-12'>
+                <div className='md:pl-12'>
                     <h4 className='text-2xl opacity-50 mb-3'>Others</h4>
                     <p className='m-1'>Pricing</p>
                     <p className='m-1'>Sectors</p>
@@ -30,7 +30,7 @@ const Footer = () => {
                     <p className='m-1'>Support</p>
                     <p className='m-1'>Contact Us</p>
                 </div>
-                <div className='pl-12'>
+                <div className='md:pl-12'>
                     <h4 className='text-2xl opacity-50 mb-3'>Follow Us</h4>
                     <div className='flex'>
                         <FacebookOutlined className='text-4xl' />

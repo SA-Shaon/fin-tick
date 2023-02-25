@@ -1,9 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import homeIcon from '../../../../images/Home/icon.png';
 
 const Header = () => {
+    const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+    const handleSearch = () => {
+        navigate(`/company/${search}`);
+        setSearch("");
+    }
     return (
         <Navbar expand="lg" className='bg-lime-100'>
             <Container fluid>
@@ -16,15 +23,18 @@ const Header = () => {
                             placeholder="Search your Company "
                             className="me-2 bg-lime-100"
                             aria-label="Search"
+                            onChange={e => setSearch(e.target.value)}
+                            value={search}
+                            required
                         />
-                        <Button variant="outline-success">Search</Button>
+                        <Button onClick={handleSearch} variant="outline-success">Search</Button>
                     </Form>
                     <Nav
                         className="my-2 my-lg-0"
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link}  to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} className='ms-2' to="/calculator">Calculator</Nav.Link>
                         <Nav.Link as={Link} className='ms-2' to="/">About</Nav.Link>
                         <Nav.Link as={Link} className='ms-2' to="/">Help</Nav.Link>
